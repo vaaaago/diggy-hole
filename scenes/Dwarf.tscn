@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck10x1cgf6jdb"]
+
+[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_30223"]
+[ext_resource type="Script" path="res://scenes/moviemiento.gd" id="2_sw26m"]
+
+[node name="Dwarf" type="Node"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(256, 146)
+texture = ExtResource("1_30223")
+script = ExtResource("2_sw26m")
