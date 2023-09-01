@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://desseea7tcv6e"]
+
+[resource]
+MarginContainer/constants/margin_bottom = 12
+MarginContainer/constants/margin_left = 12
+MarginContainer/constants/margin_right = 12
+MarginContainer/constants/margin_top = 12
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 28
