@@ -11,9 +11,21 @@ config_version=5
 [application]
 
 config/name="diggy-hole"
-run/main_scene="res://scenes/Dwarf.tscn"
+run/main_scene="res://scenes/menu-inicio.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://sprites/icon.svg"
+config/windows_native_icon="res://sprites/icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="res://resources/main_menu_theme.tres"
+theme/custom_font="res://assets/font/Mork Dungeon.ttf"
 
 [input]
 
