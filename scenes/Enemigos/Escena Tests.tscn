@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmppfekdtmvap"]
+[gd_scene load_steps=4 format=3 uid="uid://bmppfekdtmvap"]
 
 [ext_resource type="PackedScene" uid="uid://b8l2vu4kw168l" path="res://scenes/Enemigos/Esqueleto.tscn" id="1_sea58"]
+[ext_resource type="PackedScene" uid="uid://xi8dvu7oj0qk" path="res://scenes/Enemigos/flying_eye.tscn" id="2_gsrks"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xojlj"]
+vertices = PackedVector2Array(368, 385, 65, 267, 82, 150, 419, 297, 530, 392, 503, 300, 629, 330, 600, 198, 518, 224, 553, 108, 393, 109, 451, 197, 360, 186, 359, 125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6), PackedInt32Array(7, 6, 5, 8, 9), PackedInt32Array(10, 9, 8, 11), PackedInt32Array(10, 11, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(393, 109, 553, 108, 600, 198, 629, 330, 530, 392, 368, 385, 65, 267, 82, 150, 419, 297, 503, 300, 518, 224, 451, 197, 360, 186, 359, 125)])
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_sea58")]
-position = Vector2(223, 107)
+[node name="Esqueleto" parent="." instance=ExtResource("1_sea58")]
+position = Vector2(153, 233)
+
+[node name="Ojo" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("2_gsrks")]
+position = Vector2(461, 135)
+movement_target = NodePath("../Esqueleto")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(35, -12)
+navigation_polygon = SubResource("NavigationPolygon_xojlj")
