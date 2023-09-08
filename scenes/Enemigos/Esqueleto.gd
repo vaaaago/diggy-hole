@@ -46,10 +46,14 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("debug enemy down"):
 		velocity.y = move_toward(velocity.y, SPEED, acceleration*delta)
+	elif Input.is_action_pressed("debug enemy up"):
+		velocity.y = move_toward(velocity.y, -SPEED, acceleration*delta)
 	else:
 		velocity.y = 0
 	if Input.is_action_pressed("debug enemy right"):
 		velocity.x = move_toward(velocity.x, SPEED, acceleration*delta)
+	elif Input.is_action_pressed("debug enemy left"):
+		velocity.x = move_toward(velocity.x, -SPEED, acceleration*delta)
 	else:
 		velocity.x = 0
 	if Input.is_action_just_pressed("debug enemy attack"):

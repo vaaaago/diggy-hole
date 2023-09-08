@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
-var acceleration = 1000
+const SPEED = 100.0
+var acceleration = 200
 
 @export var movement_target: Node2D
 @export var navigation_agent: NavigationAgent2D
