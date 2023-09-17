@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8qr48l0a8nmn"]
+
+[ext_resource type="Texture2D" uid="uid://dotip8edxb4lm" path="res://assets/turret-removebg-preview.png" id="1_u6ibm"]
+
+[node name="turret1" type="Node2D"]
+
+[node name="Turret-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(113, 60)
+texture = ExtResource("1_u6ibm")
