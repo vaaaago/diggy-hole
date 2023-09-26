@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmdmqb0g7g4qy"]
+
+[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_xnn10"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sj066"]
+
+[node name="bolt" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_sj066")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xnn10")
+centered = false
