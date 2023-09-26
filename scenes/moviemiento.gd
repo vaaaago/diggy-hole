@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CharacterBody2D
 var speed = 350
 
 # Called when the node enters the scene tree for the first time.

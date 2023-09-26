@@ -9,8 +9,6 @@ var acceleration = 200
 
 
 
-
-
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
@@ -21,9 +19,8 @@ var acceleration = 200
 
 func _ready():
 	animation_tree.active = true
-	navigation_agent.path_desired_distance = 5.0
-	navigation_agent.target_desired_distance = 58.0
-	
+	navigation_agent.path_desired_distance = 5
+	navigation_agent.target_desired_distance = 30.0
 	
 	call_deferred("actor_setup")
 
@@ -43,11 +40,10 @@ func _physics_process(delta):
 	else:
 		sprite2d.flip_h = false
 	if abs(velocity.x) > 10 or abs(velocity.y)>10:
-		playback.travel("Walk")
+		playback.travel("Run")
 	if navigation_agent.distance_to_target() <= 58:
 		attack()
 		velocity = Vector2.ZERO
-	
 	
 
 	move_and_slide()
@@ -61,15 +57,6 @@ func actor_setup():
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
 	
+	
 func attack():
 	playback.travel("Attack")
-	
-
-
-	
-
-	
-
-
-
-	
