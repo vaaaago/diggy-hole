@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgg3b5y2djpf4"]
+
+[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_a6im1"]
+[ext_resource type="Script" path="res://scenes/moviemiento.gd" id="1_s0kk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5eux"]
+size = Vector2(50, 50)
+
+[node name="Muñeco Pruebas" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_s0kk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.390625, 0.390625)
+texture = ExtResource("1_a6im1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q5eux")

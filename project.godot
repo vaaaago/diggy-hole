@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="diggy-hole"
-run/main_scene="res://scenes/menu-inicio.tscn"
+run/main_scene="res://scenes/menu_demo.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 config/windows_native_icon="res://sprites/icon.svg"

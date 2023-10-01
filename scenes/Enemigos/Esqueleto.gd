@@ -1,69 +1,70 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
-var acceleration = 1000
+const SPEED = 100.0
+var acceleration = 200
+
+@export var movement_target: Node2D
+@export var navigation_agent: NavigationAgent2D
 
 
 
-@onready var spriteIdle = $SpriteIdle
-@onready var spriteWalk = $SpriteWalk
-@onready var spriteAttack = $SpriteAttack
+
+
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var sprite2d = $Sprite2D
 
 
 
-func attack():
-	print("Attacking")
-	
-	
-	
 
 func _ready():
-	spriteWalk.visible = false
-	spriteAttack.visible = false
-	spriteIdle.visible = true
 	animation_tree.active = true
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+	navigation_agent.path_desired_distance = 5.0
+	navigation_agent.target_desired_distance = 58.0
+	
+	
+	call_deferred("actor_setup")
 
 func _physics_process(delta):
-	if (spriteIdle.visible) and (abs(velocity.x) >= 10 or abs(velocity.y) >= 10):
-		spriteIdle.visible = false
-		spriteAttack.visible = false
-		spriteWalk.visible = true
+	
+	set_movement_target(movement_target.position)
+	var current_agent_position: Vector2 = global_position
+	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	
+	var new_velocity: Vector2 = next_path_position - current_agent_position
+	new_velocity = new_velocity.normalized()
+	new_velocity = new_velocity * SPEED
+	
+	velocity = new_velocity
+	if position.x - movement_target.position.x > 0:
+		sprite2d.flip_h = true
+	else:
+		sprite2d.flip_h = false
+	if abs(velocity.x) > 10 or abs(velocity.y)>10:
 		playback.travel("Walk")
-	if (spriteWalk.visible) and (abs(velocity.x) <= 10 and abs(velocity.y) <= 10):
-		spriteWalk.visible = false
-		spriteAttack.visible = false
-		spriteIdle.visible = true
-		playback.travel("Idle")
-	
-	if Input.is_action_pressed("debug enemy down"):
-		velocity.y = move_toward(velocity.y, SPEED, acceleration*delta)
-	elif Input.is_action_pressed("debug enemy up"):
-		velocity.y = move_toward(velocity.y, -SPEED, acceleration*delta)
-	else:
-		velocity.y = 0
-	if Input.is_action_pressed("debug enemy right"):
-		velocity.x = move_toward(velocity.x, SPEED, acceleration*delta)
-	elif Input.is_action_pressed("debug enemy left"):
-		velocity.x = move_toward(velocity.x, -SPEED, acceleration*delta)
-	else:
-		velocity.x = 0
-	if Input.is_action_just_pressed("debug enemy attack"):
+	if navigation_agent.distance_to_target() <= 58:
 		attack()
+		velocity = Vector2.ZERO
 	
 	
-	
+
 	move_and_slide()
 	
+
+func actor_setup():
+	await get_tree().physics_frame
 	
+	set_movement_target(movement_target.position)
+	
+func set_movement_target(target_point: Vector2):
+	navigation_agent.target_position = target_point
+	
+func attack():
+	playback.travel("Attack")
+	
+
 
 	
 
