@@ -1,0 +1,188 @@
+[gd_scene load_steps=21 format=3 uid="uid://xi8dvu7oj0qk"]
+
+[ext_resource type="Script" path="res://scenes/Enemigos/flying_eye.gd" id="1_52l5m"]
+[ext_resource type="Texture2D" uid="uid://dsmvy3h1ubk4" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Flying eye/Flight.png" id="1_aal2w"]
+[ext_resource type="Texture2D" uid="uid://c7e44mclkyqi8" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Flying eye/Attack.png" id="3_xcy2b"]
+[ext_resource type="Texture2D" uid="uid://c4a0y7jhc5rpd" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Flying eye/Death.png" id="4_6gj8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4af7"]
+size = Vector2(24, 23)
+
+[sub_resource type="Animation" id="Animation_4u7cm"]
+resource_name = "Attack"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_xcy2b")]
+}
+
+[sub_resource type="Animation" id="Animation_fff32"]
+resource_name = "Death"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_6gj8q")]
+}
+
+[sub_resource type="Animation" id="Animation_0je43"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aal2w")]
+}
+
+[sub_resource type="Animation" id="Animation_57mwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aal2w")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p456d"]
+_data = {
+"Attack": SubResource("Animation_4u7cm"),
+"Death": SubResource("Animation_fff32"),
+"Idle": SubResource("Animation_0je43"),
+"RESET": SubResource("Animation_57mwq")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rj5ts"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_furm8"]
+animation = &"Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nwqs4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8buk0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nagtt"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_divxy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1wnfk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qqa2n"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rokmj"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yrc5h"]
+states/Attack/node = SubResource("AnimationNodeAnimation_rj5ts")
+states/Attack/position = Vector2(521, 157)
+states/Death/node = SubResource("AnimationNodeAnimation_furm8")
+states/Death/position = Vector2(703, 100)
+states/Idle/node = SubResource("AnimationNodeAnimation_nwqs4")
+states/Idle/position = Vector2(349, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8buk0"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_nagtt"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_divxy"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_1wnfk"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_qqa2n"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_rokmj")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+collision_mask = 2
+platform_floor_layers = 0
+script = ExtResource("1_52l5m")
+navigation_agent = NodePath("NavigationAgent2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3.5)
+shape = SubResource("RectangleShape2D_t4af7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aal2w")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p456d")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_yrc5h")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
