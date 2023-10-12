@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsvy6d7j4dub8"]
+[gd_scene load_steps=10 format=3 uid="uid://bsvy6d7j4dub8"]
 
+[ext_resource type="Script" path="res://scenes/StaticBody2D.gd" id="1_3tuh0"]
 [ext_resource type="Texture2D" uid="uid://bllupor0yeyd7" path="res://texturas/Textures-16.png" id="2_vr7fk"]
 [ext_resource type="Texture2D" uid="uid://cxjijvm4mnujx" path="res://texturas/rock tile (1).png" id="3_prdr3"]
 [ext_resource type="Texture2D" uid="uid://bxatl35xhdl3s" path="res://texturas/512x512 Crystals Transparent.png" id="3_ymvmt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28eod"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3784"]
 texture = ExtResource("2_vr7fk")
@@ -180,6 +183,29 @@ sources/1 = SubResource("TileSetAtlasSource_or3ph")
 sources/2 = SubResource("TileSetAtlasSource_yis4e")
 
 [node name="fondo-lvl-1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer"]
+position = Vector2(133, 23)
+script = ExtResource("1_3tuh0")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
+position = Vector2(508, 163)
+scale = Vector2(1.25, 1.25)
+shape = SubResource("CircleShape2D_28eod")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/StaticBody2D"]
+position = Vector2(507, 164)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_ymvmt")
+hframes = 15
+vframes = 8
+frame = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/StaticBody2D/Sprite2D"]
+wait_time = 0.5
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, 2)
