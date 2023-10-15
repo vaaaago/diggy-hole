@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jl85rkt7u6yw"]
+[gd_scene load_steps=18 format=3 uid="uid://jl85rkt7u6yw"]
 
 [ext_resource type="Script" path="res://script_enano.gd" id="1_2lpd2"]
 [ext_resource type="Texture2D" uid="uid://dupqbku5s1jfk" path="res://assets/Dwarf Miner Sprite Sheet.png" id="2_eljh1"]
@@ -18,6 +18,24 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5vt7q"]
+resource_name = "cavar"
+length = 0.56
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/pivote/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_gcsy8"]
@@ -57,9 +75,13 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gnyql"]
 _data = {
 "RESET": SubResource("Animation_gnc8e"),
+"cavar": SubResource("Animation_5vt7q"),
 "idle": SubResource("Animation_gcsy8"),
 "move": SubResource("Animation_04v2x")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rortw"]
+animation = &"cavar"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b41rs"]
 animation = &"idle"
@@ -74,17 +96,23 @@ animation = &"move"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g34m3"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b3s4l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vjbh8"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_11obg"]
+states/cavar/node = SubResource("AnimationNodeAnimation_rortw")
+states/cavar/position = Vector2(621.333, 160.42)
 states/idle/node = SubResource("AnimationNodeAnimation_b41rs")
 states/idle/position = Vector2(392, 93.1111)
 states/move/node = SubResource("AnimationNodeAnimation_gbbdj")
-states/move/position = Vector2(630.667, 92.6667)
-transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_mj1p2"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_kgqgv"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_g34m3")]
+states/move/position = Vector2(630.667, 93.7037)
+transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_mj1p2"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_kgqgv"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_g34m3"), "idle", "cavar", SubResource("AnimationNodeStateMachineTransition_b3s4l"), "cavar", "idle", SubResource("AnimationNodeStateMachineTransition_vjbh8")]
 
 [node name="enano" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(458, 135)
 motion_mode = 1
 script = ExtResource("1_2lpd2")
 metadata/_edit_group_ = true
@@ -111,3 +139,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
 tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
