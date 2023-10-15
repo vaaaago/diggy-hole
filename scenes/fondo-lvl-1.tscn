@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsvy6d7j4dub8"]
+[gd_scene load_steps=9 format=3 uid="uid://bsvy6d7j4dub8"]
 
 [ext_resource type="Script" path="res://scenes/StaticBody2D.gd" id="1_3tuh0"]
 [ext_resource type="Texture2D" uid="uid://bllupor0yeyd7" path="res://texturas/Textures-16.png" id="2_vr7fk"]
@@ -184,16 +184,6 @@ sources/1 = SubResource("TileSetAtlasSource_or3ph")
 [node name="fondo-lvl-1" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-layer = -1
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2(641, 381)
-scale = Vector2(0.95, 0.95)
-texture = ExtResource("6_4fxjq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer"]
 position = Vector2(232, 483)
