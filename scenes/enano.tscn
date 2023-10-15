@@ -112,7 +112,7 @@ transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_
 [node name="enano" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(458, 135)
 motion_mode = 1
 script = ExtResource("1_2lpd2")
 metadata/_edit_group_ = true
