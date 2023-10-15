@@ -112,7 +112,7 @@ transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_
 [node name="enano" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(458, 135)
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_2lpd2")
 metadata/_edit_group_ = true
@@ -141,3 +141,8 @@ tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = -1
+limit_top = 1
+limit_right = 1295
+limit_bottom = 1700
+editor_draw_limits = true
