@@ -262,7 +262,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(2, 1096)
+position = Vector2(55, 1119)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -283,7 +283,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(411, 943)
+position = Vector2(279, 843)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
