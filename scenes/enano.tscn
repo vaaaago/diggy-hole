@@ -139,3 +139,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
 tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
