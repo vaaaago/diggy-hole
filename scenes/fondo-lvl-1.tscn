@@ -220,7 +220,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(-348, 833)
+position = Vector2(-361, 816)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -262,7 +262,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(55, 1119)
+position = Vector2(113, 1117)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -283,7 +283,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(279, 843)
+position = Vector2(279, 849)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -304,7 +304,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(-98, 1412)
+position = Vector2(-181, 1421)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -325,7 +325,7 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(526, 1268)
+position = Vector2(451, 1377)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
 
@@ -341,6 +341,27 @@ frame = 1
 wait_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D7"]
+position = Vector2(509, 162)
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_28eod")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="CanvasLayer"]
+position = Vector2(667, 960)
+script = ExtResource("1_3tuh0")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/StaticBody2D8"]
+position = Vector2(507, 164)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_ymvmt")
+hframes = 15
+vframes = 8
+frame = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/StaticBody2D8/Sprite2D"]
+wait_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D8"]
 position = Vector2(509, 162)
 scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
