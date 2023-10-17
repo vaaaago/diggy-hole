@@ -3,7 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var acceleration = 200
-var hp = 4
+var hp = 1
+var attacking = false
+var damage = 1
 
 @export var movement_target: Node2D
 @export var navigation_agent: NavigationAgent2D
@@ -46,6 +48,12 @@ func _physics_process(delta):
 		playback.travel("Idle")
 	if navigation_agent.distance_to_target() <= 58 and hp>0:
 		attack()
+	if hp<=0 and not attacking:
+		playback.travel("Death")
+	if (playback.get_current_node() == "End"):
+		queue_free()
+		if attacking:
+			movement_target.hp -= damage
 	
 
 	move_and_slide()
@@ -62,3 +70,4 @@ func set_movement_target(target_point: Vector2):
 func attack():
 	playback.travel("Attack")
 	hp = 0
+	attacking = true
