@@ -45,21 +45,28 @@ func _physics_process(delta: float) -> void:
 		playback.travel("move")
 	else:
 		playback.travel("idle")
-	
+
+
+		
 	if Input.is_action_pressed("left_click"): #animacion para cavar
-		var target_position = get_global_mouse_position()
-		var distance = position.distance_to(target_position)
-		var posicion_enano = character_body_2d.global_transform.origin #obtener posicion del enano
-		var rango_cavar = 100  # Establece tu rango de ataque
+		var target_position = get_global_mouse_position() #coordenada mouse
+		var posicion_enano = character_body_2d.global_position #obtener posicion del enano
+		var distance = target_position.distance_to(posicion_enano)
+		var rango_cavar = 70  # Establece tu rango de ataque
+    
 		if distance <= rango_cavar:
 			if target_position.x - posicion_enano.x < 0:
 				pivote.scale.x = -1
 			elif pivote.scale.x == -1 and target_position.x - posicion_enano.x > 0 :
 				pivote.scale.x = 1
 			print("cavar")
-			print(target_position.x - posicion_enano.x)
+			print(distance)
 			playback.travel("cavar")
 			
 		else:
 			print("fuera de rango")
+			print(distance)
+			
+			
+			
 

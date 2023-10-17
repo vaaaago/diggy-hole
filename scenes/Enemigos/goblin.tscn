@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b885540asgccf"]
+[gd_scene load_steps=26 format=3 uid="uid://b885540asgccf"]
 
 [ext_resource type="Texture2D" uid="uid://dmv6ewjq8ebyf" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="1_1kij4"]
 [ext_resource type="Script" path="res://scenes/Enemigos/goblin.gd" id="1_eox2n"]
@@ -11,7 +11,6 @@ size = Vector2(42, 43)
 
 [sub_resource type="Animation" id="Animation_sg7m6"]
 resource_name = "Attack"
-loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -175,26 +174,23 @@ animation = &"Run"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qninh"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oqq74"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_px18n"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qucan"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fsco7"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1qw3n"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oq0j4"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p1yxe"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rrim7"]
+switch_mode = 2
+advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_itdmy"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_epjxs"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_up6c2"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rf04y"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5720t"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gq6qw"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8mg4w"]
 states/Attack/node = SubResource("AnimationNodeAnimation_4iauw")
@@ -205,7 +201,7 @@ states/Idle/node = SubResource("AnimationNodeAnimation_ysr2t")
 states/Idle/position = Vector2(338, 100)
 states/Run/node = SubResource("AnimationNodeAnimation_t4lex")
 states/Run/position = Vector2(521, 160)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qninh"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_oqq74"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_px18n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_qucan"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_fsco7"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_1qw3n"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_oq0j4"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_p1yxe"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_itdmy"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_up6c2"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_5720t")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qninh"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_px18n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_qucan"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_oq0j4"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_rrim7"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_epjxs"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_rf04y"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_gq6qw")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 collision_mask = 2
