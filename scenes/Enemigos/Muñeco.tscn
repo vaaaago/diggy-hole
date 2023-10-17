@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfjhlgelrdbwg"]
+
+[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_a7j18"]
+[ext_resource type="Script" path="res://scenes/Enemigos/Muñeco.gd" id="1_so4tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn258"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 2
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_floor_layers = 0
+script = ExtResource("1_so4tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_tn258")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_a7j18")

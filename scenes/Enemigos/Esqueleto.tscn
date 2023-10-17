@@ -190,12 +190,8 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m3ppk"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cj3v7"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q4fyu"]
 states/Attack/node = SubResource("AnimationNodeAnimation_j4q0f")
@@ -209,7 +205,7 @@ states/Start/position = Vector2(154, 152)
 states/Walk/node = SubResource("AnimationNodeAnimation_47245")
 states/Walk/position = Vector2(578, 235)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_v2rkf"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_biocx"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_k8g4y"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_misot"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_3a6lh"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_uma35"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_fmlj6"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_m3ppk"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_cj3v7")]
-graph_offset = Vector2(28.3039, 95.9829)
+graph_offset = Vector2(79.3039, 69.9829)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 collision_mask = 2
