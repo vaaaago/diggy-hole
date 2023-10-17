@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("left_click"):
 		var target_position = get_global_mouse_position() #coordenada mouse
-		var posicion_enano = character_body_2d.global_position #obtener posicion del enano
+		var posicion_enano = character_body_2d.global_position
+		#obtener posicion del enano
 		var distance = target_position.distance_to(posicion_enano)
 		var rango_cavar = 70  # Establece tu rango de ataque
 		if distance <= rango_cavar:

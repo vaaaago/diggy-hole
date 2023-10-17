@@ -2,6 +2,7 @@ class_name TileCraft
 extends TileMap
 
 
+
 # {coord: Vector2i : {destructible: bool; health: int }}
 var data: Dictionary
 
