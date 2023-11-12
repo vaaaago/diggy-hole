@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dupqbku5s1jfk" path="res://assets/Dwarf Miner Sprite Sheet.png" id="2_eljh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x53p2"]
+radius = 14.0
 
 [sub_resource type="Animation" id="Animation_gnc8e"]
 length = 0.001
@@ -127,7 +128,6 @@ vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 11)
-scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x53p2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]

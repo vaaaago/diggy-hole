@@ -3,45 +3,30 @@ extends TileMap
 
 
 
-# {coord: Vector2i : {destructible: bool; health: int }}
-var data: Dictionary
+var mining = false
+var max_timer = 0.5
+var current_time = 0
+var current_block 
 
-
-var timer: Timer
-
-
-func _ready():
-	var cells = get_used_cells(0)
-	#for coord in cells:
-		#var tile_data = get_cell_tile_data(0, coord)
-		#data[coord] = {
-			#"destructible": tile_data.get_custom_data("destructible"),
-			#"health": tile_data.get_custom_data("health")
-		#}
-	timer = Timer.new()
-	timer.one_shot = true
-	timer.wait_time = 1
-	add_child(timer)
-	timer.timeout.connect(_on_timer_timeout)
-
-func get_health(coord: Vector2i) -> int:
-	return data[coord].health
-
-func set_health(coord: Vector2i, value: int) -> void:
-	data[coord].health = value
-
-
-func is_destructible(coord: Vector2i) -> bool:
-	return data[coord].destructible
-
+func _process(delta):
+	if mining:
+		var coords = local_to_map(get_local_mouse_position())
+		if coords != current_block:
+			current_time = 0
+			current_block = coords
+		current_time += delta
+		if current_time >= max_timer:
+			current_time -= max_timer
+			set_cell(1, current_block, -1)
+ 
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
-		timer.start()
+		mining = true
+		current_block = local_to_map(get_local_mouse_position())
+		
 	if event.is_action_released("left_click"):
-		timer.stop()
+		mining = false
 
 
-func _on_timer_timeout():
-	var coords = local_to_map(get_local_mouse_position())
-	set_cell(1, coords, -1)
+
