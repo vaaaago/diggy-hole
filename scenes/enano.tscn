@@ -110,10 +110,8 @@ states/move/node = SubResource("AnimationNodeAnimation_gbbdj")
 states/move/position = Vector2(630.667, 93.7037)
 transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_mj1p2"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_kgqgv"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_g34m3"), "idle", "cavar", SubResource("AnimationNodeStateMachineTransition_b3s4l"), "cavar", "idle", SubResource("AnimationNodeStateMachineTransition_vjbh8")]
 
-
 [node name="enano" type="CharacterBody2D"]
 collision_layer = 2
-
 motion_mode = 1
 script = ExtResource("1_2lpd2")
 
@@ -139,11 +137,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
 
-
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -1
 limit_top = 1
 limit_right = 1295
 limit_bottom = 1700
 editor_draw_limits = true
-
