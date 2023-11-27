@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsvy6d7j4dub8"]
+[gd_scene load_steps=13 format=3 uid="uid://bsvy6d7j4dub8"]
 
 [ext_resource type="Script" path="res://scenes/StaticBody2D.gd" id="1_3tuh0"]
 [ext_resource type="PackedScene" uid="uid://cp86i1886exfh" path="res://tile_map.tscn" id="1_wb8qf"]
-[ext_resource type="Script" path="res://scenes/gemas.gd" id="3_tlt5d"]
 [ext_resource type="Texture2D" uid="uid://bxatl35xhdl3s" path="res://texturas/512x512 Crystals Transparent.png" id="3_ymvmt"]
 [ext_resource type="PackedScene" uid="uid://jl85rkt7u6yw" path="res://scenes/enano.tscn" id="5_oc4a3"]
 [ext_resource type="Texture2D" uid="uid://c883tmrhb1jif" path="res://texturas/forestandcave.jpg" id="6_4fxjq"]
+[ext_resource type="PackedScene" uid="uid://ornhnj0mjyfe" path="res://scenes/puerta.tscn" id="7_p8j08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eogsc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28eod"]
 
@@ -38,20 +40,26 @@ layer_2/tile_data = PackedInt32Array()
 [node name="enano" parent="." instance=ExtResource("5_oc4a3")]
 z_index = 1
 position = Vector2(551, 603)
+scale = Vector2(1.00121, 0.990381)
 
 [node name="gemas" type="Node2D" parent="."]
 visibility_layer = 2
 z_index = 1
-script = ExtResource("3_tlt5d")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="gemas"]
 top_level = true
 visibility_layer = 2
 z_index = 1
-position = Vector2(306, 784)
+position = Vector2(370, 1526)
 collision_layer = 2
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -70,9 +78,15 @@ shape = SubResource("CircleShape2D_28eod")
 [node name="StaticBody2D5" type="StaticBody2D" parent="gemas"]
 visibility_layer = 2
 z_index = 1
-position = Vector2(214, 968)
+position = Vector2(241, 934)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D5/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D5"]
 scale = Vector2(0.1, 0.1)
@@ -90,10 +104,16 @@ shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="gemas"]
 visibility_layer = 2
-position = Vector2(551, 1257)
+position = Vector2(117, 1822)
 collision_layer = 2
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D7/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D7"]
 scale = Vector2(0.1, 0.1)
@@ -111,9 +131,15 @@ shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="gemas"]
 visibility_layer = 2
-position = Vector2(1047, 1163)
+position = Vector2(791, 1289)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D4/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D4"]
 scale = Vector2(0.1, 0.1)
@@ -130,9 +156,15 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="gemas"]
-position = Vector2(997, 1490)
+position = Vector2(808, 2087)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D3/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D3"]
 scale = Vector2(0.1, 0.1)
@@ -149,9 +181,15 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="gemas"]
-position = Vector2(239, 1515)
+position = Vector2(1164, 1620)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D6/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D6"]
 scale = Vector2(0.1, 0.1)
@@ -168,9 +206,15 @@ scale = Vector2(2.2, 2.2)
 shape = SubResource("CircleShape2D_28eod")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="gemas"]
-position = Vector2(785, 872)
+position = Vector2(1196, 1098)
 script = ExtResource("1_3tuh0")
 metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="gemas/StaticBody2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gemas/StaticBody2D2/Area2D"]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_eogsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="gemas/StaticBody2D2"]
 scale = Vector2(0.1, 0.1)
@@ -192,26 +236,48 @@ layer = -1
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(639, 523)
+position = Vector2(646, 457)
 scale = Vector2(0.95, 0.95)
 texture = ExtResource("6_4fxjq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="margenes" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="margenes"]
 position = Vector2(647, 298)
 shape = SubResource("RectangleShape2D_xf4lx")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="margenes"]
 position = Vector2(-21.5, 1464.5)
 shape = SubResource("RectangleShape2D_e51ky")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="margenes"]
 position = Vector2(1326.25, 1460.38)
 shape = SubResource("RectangleShape2D_jum7t")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="margenes"]
 position = Vector2(672.25, 2958)
 shape = SubResource("RectangleShape2D_5yio4")
+
+[node name="puerta" parent="." instance=ExtResource("7_p8j08")]
+z_index = 1
+position = Vector2(1217, 771)
+scale = Vector2(0.5, 0.5)
+collision_layer = 1
+
+[connection signal="mouse_entered" from="gemas/StaticBody2D/Area2D" to="gemas/StaticBody2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D/Area2D" to="gemas/StaticBody2D" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D5/Area2D" to="gemas/StaticBody2D5" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D5/Area2D" to="gemas/StaticBody2D5" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D7/Area2D" to="gemas/StaticBody2D7" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D7/Area2D" to="gemas/StaticBody2D7" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D4/Area2D" to="gemas/StaticBody2D4" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D4/Area2D" to="gemas/StaticBody2D4" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D3/Area2D" to="gemas/StaticBody2D3" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D3/Area2D" to="gemas/StaticBody2D3" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D6/Area2D" to="gemas/StaticBody2D6" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D6/Area2D" to="gemas/StaticBody2D6" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="gemas/StaticBody2D2/Area2D" to="gemas/StaticBody2D2" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="gemas/StaticBody2D2/Area2D" to="gemas/StaticBody2D2" method="_on_area_2d_mouse_exited"]
+[connection signal="body_entered" from="puerta" to="puerta" method="_on_body_entered"]

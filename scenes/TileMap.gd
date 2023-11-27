@@ -30,3 +30,11 @@ func _input(event):
 
 
 
+
+
+func _on_area_2d_mouse_entered():
+	pass # Replace with function body.
+
+
+func _on_static_body_2d_7_mouse_entered():
+	pass # Replace with function body.

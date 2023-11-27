@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ornhnj0mjyfe"]
+
+[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_ncgym"]
+[ext_resource type="Script" path="res://scenes/puerta.gd" id="1_tjgq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhbwy"]
+size = Vector2(18.4286, 18.5714)
+
+[node name="puerta" type="Area2D"]
+position = Vector2(-2, 4)
+collision_layer = 2
+script = ExtResource("1_tjgq8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500001, -3.33786e-06)
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_nhbwy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ncgym")

@@ -8,7 +8,7 @@ func _ready():
 	button_exit.pressed.connect(_on_button_exit_pressed)
 	
 func _on_button_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/Dwarf.tscn")
+	LevelManager.start_game()
 	
 func _on_button_exit_pressed():
 	get_tree().quit()
