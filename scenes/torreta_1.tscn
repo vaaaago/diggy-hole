@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://db55mjxs2dn2j"]
+
+[ext_resource type="Script" path="res://scenes/torreta_1.gd" id="1_hgmh0"]
+[ext_resource type="Texture2D" uid="uid://clak2tyiaotuw" path="res://assets/wpns_16x16_black_outline.png" id="1_yummi"]
+[ext_resource type="PackedScene" uid="uid://duaehaigji1m0" path="res://scenes/bolt.tscn" id="2_rx72w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lql3j"]
+radius = 13.0
+
+[node name="Torreta1" type="CharacterBody2D"]
+script = ExtResource("1_hgmh0")
+bolt_scene = ExtResource("2_rx72w")
+
+[node name="pivote" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pivote"]
+rotation = 0.785398
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_yummi")
+hframes = 11
+vframes = 10
+frame = 47
+metadata/_edit_lock_ = true
+
+[node name="boltspawn" type="Marker2D" parent="pivote"]
+position = Vector2(14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lql3j")
+
+[node name="SubViewport" type="Camera2D" parent="."]
