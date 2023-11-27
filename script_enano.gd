@@ -3,6 +3,7 @@ extends CharacterBody2D
 var rapidez = 400
 var aceleracion = 1000
 var gravity = 0
+var hp = int(3) #vida del enano
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -44,13 +45,16 @@ func _physics_process(delta: float) -> void:
 		playback.travel("move")
 	else:
 		playback.travel("idle")
+
+
 		
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("left_click"): #animacion para cavar
 		var target_position = get_global_mouse_position() #coordenada mouse
 		var posicion_enano = character_body_2d.global_position
 		#obtener posicion del enano
 		var distance = target_position.distance_to(posicion_enano)
 		var rango_cavar = 70  # Establece tu rango de ataque
+	
 		if distance <= rango_cavar:
 			if target_position.x - posicion_enano.x < 0:
 				pivote.scale.x = -1
@@ -59,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			print("cavar")
 			print(distance)
 			playback.travel("cavar")
-			#aqui toca configurar el ataque y perdidas de vida
+			
 		else:
 			print("fuera de rango")
 			print(distance)

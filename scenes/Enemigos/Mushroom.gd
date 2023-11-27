@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var acceleration = 200
+var hp = 4
+var attacking = false
+var damage = 4
 
 @export var movement_target: Node2D
 @export var navigation_agent: NavigationAgent2D
@@ -13,7 +16,7 @@ var acceleration = 200
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var sprite2d = $Sprite2D
-
+@onready var attack_sound = $Ataque
 
 func _ready():
 	animation_tree.active = true
@@ -33,16 +36,22 @@ func _physics_process(delta):
 	new_velocity = new_velocity * SPEED
 	
 	velocity = new_velocity
-	
+	if hp<=0:
+		velocity = Vector2.ZERO
 	if position.x - movement_target.position.x > 0:
 		sprite2d.flip_h = true
 	else:
 		sprite2d.flip_h = false
-	if abs(velocity.x) > 10 or abs(velocity.y)>10:
+	if (abs(velocity.x) > 10 or abs(velocity.y)>10) and hp>0:
 		playback.travel("Run")
-	if navigation_agent.distance_to_target() <= 40:
+	if navigation_agent.distance_to_target() <= 58 and hp>0:
 		attack()
-		velocity = Vector2.ZERO
+	if hp<=0 and not attacking:
+		playback.travel("Death")
+	if (playback.get_current_node() == "End"):
+		queue_free()
+		if attacking:
+			movement_target.hp -= damage
 	
 
 	move_and_slide()
@@ -60,4 +69,7 @@ func set_movement_target(target_point: Vector2):
 	
 	
 func attack():
+	attack_sound.play()
 	playback.travel("Attack")
+	hp = 0
+	attacking = true

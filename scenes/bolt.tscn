@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmdmqb0g7g4qy"]
+[gd_scene load_steps=4 format=3 uid="uid://duaehaigji1m0"]
 
-[ext_resource type="Texture2D" uid="uid://fkixgmmrsngm" path="res://sprites/icon.svg" id="1_xnn10"]
+[ext_resource type="Script" path="res://Bolt.gd" id="1_vq1w1"]
+[ext_resource type="Texture2D" uid="uid://clak2tyiaotuw" path="res://assets/wpns_16x16_black_outline.png" id="2_x1yix"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_sj066"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvbal"]
+radius = 3.0
 
 [node name="bolt" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource("SegmentShape2D_sj066")
+script = ExtResource("1_vq1w1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xnn10")
-centered = false
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_x1yix")
+hframes = 11
+vframes = 10
+frame = 62
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_bvbal")
