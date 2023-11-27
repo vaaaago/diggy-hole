@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cc0b4k5f6kfjf"]
+[gd_scene load_steps=28 format=3 uid="uid://cc0b4k5f6kfjf"]
 
 [ext_resource type="Texture2D" uid="uid://c5i15gfs2o1hb" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="1_ftxaw"]
 [ext_resource type="Script" path="res://scenes/Enemigos/Mushroom.gd" id="1_hos3h"]
 [ext_resource type="Texture2D" uid="uid://cbq1kde3uahjo" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="2_kkyhg"]
 [ext_resource type="Texture2D" uid="uid://ddpcsgv5u5o0e" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="3_dbjl2"]
 [ext_resource type="Texture2D" uid="uid://65wmt60howvi" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Mushroom/Death.png" id="4_3bm3i"]
+[ext_resource type="AudioStream" uid="uid://gtktblmaj0hx" path="res://assets/Sonidos/SFX/21_orc_damage_2.wav" id="6_bfu7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hit7x"]
 size = Vector2(26, 39)
@@ -230,3 +231,6 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="Ataque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bfu7i")

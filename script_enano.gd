@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		#obtener posicion del enano
 		var distance = target_position.distance_to(posicion_enano)
 		var rango_cavar = 70  # Establece tu rango de ataque
-    
+	
 		if distance <= rango_cavar:
 			if target_position.x - posicion_enano.x < 0:
 				pivote.scale.x = -1

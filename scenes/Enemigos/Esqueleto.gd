@@ -18,6 +18,7 @@ var damage = 2
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var sprite2d = $Sprite2D
+@onready var attack_sound = $Ataque
 
 
 
@@ -79,6 +80,7 @@ func set_movement_target(target_point: Vector2):
 	
 func attack():
 	playback.travel("Attack")
+	attack_sound.play()
 	hp = 0
 	attacking = true
 	
