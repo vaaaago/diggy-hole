@@ -111,7 +111,8 @@ states/move/position = Vector2(630.667, 93.7037)
 transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_mj1p2"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_kgqgv"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_g34m3"), "idle", "cavar", SubResource("AnimationNodeStateMachineTransition_b3s4l"), "cavar", "idle", SubResource("AnimationNodeStateMachineTransition_vjbh8")]
 
 [node name="enano" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_2lpd2")
 
