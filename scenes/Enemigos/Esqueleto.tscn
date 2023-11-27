@@ -208,11 +208,10 @@ states/Walk/position = Vector2(578, 235)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_v2rkf"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_biocx"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_k8g4y"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_misot"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_3a6lh"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_uma35"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_fmlj6"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_m3ppk"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_cj3v7")]
 graph_offset = Vector2(79.3039, 69.9829)
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemy"]]
 collision_mask = 2
 platform_floor_layers = 0
 script = ExtResource("1_1syms")
-navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 0)
