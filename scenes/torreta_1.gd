@@ -4,6 +4,7 @@ extends Area2D
 var lista_enemigos = []
 var disparando = false
 @onready var timer = $Timer
+@onready var pivote: Node2D = $pivote
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,9 +26,12 @@ func _physics_process(delta):
 	
 func disparar(posicion):
 	var bolt = bolt_scene.instantiate()
+	#var posicion_torre = Area2D.global_position
 	get_parent().add_child(bolt)
 	bolt.global_position = boltspawn.global_position
 	bolt.rotation = boltspawn.global_position.direction_to(posicion).angle() #angulo que apunta al mouse
+	print(posicion.angle())
+	pivote.rotation = posicion.angle()
 	timer.start(0.5) #velocidad de ataque de la torreta
 	
 func checkear_enemigo(body):
