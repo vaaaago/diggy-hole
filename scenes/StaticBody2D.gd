@@ -1,7 +1,8 @@
 extends StaticBody2D
 
 @onready var area_2d = $"../StaticBody2D7/Area2D"
-
+@onready var enano: CharacterBody2D = $"../../enano"
+var rango_cavar = 70
 
 var timer: Timer
 var entro_mouse = false
@@ -18,7 +19,9 @@ func _ready():
 	area_2d.connect("mouse_exited",_on_area_2d_mouse_exited)
 
 func _input(event):
-	if event.is_action_pressed("left_click") and entro_mouse:
+	var posicion_enano = enano.global_position
+	var posicion_mouse = get_global_mouse_position()
+	if event.is_action_pressed("left_click") and entro_mouse and posicion_enano.distance_to(posicion_mouse) <= rango_cavar:
 		timer.start()
 	
 

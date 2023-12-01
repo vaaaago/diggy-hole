@@ -123,6 +123,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_eljh1")
 hframes = 8
 vframes = 6
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
@@ -135,6 +136,10 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gnyql")
+}
 tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
 
