@@ -14,6 +14,7 @@
 vertices = PackedVector2Array(-107, 579, -300, 570, -241, 58, -83, 339, 201, 96, 97, 358, 335, 404, 334, 653, 88, 639, 533, 409, 466, 93, 913, 103, 940, 657, 544, 658)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 5, 4), PackedInt32Array(9, 6, 4, 10, 11), PackedInt32Array(9, 11, 12, 13)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(201, 96, 466, 93, 913, 103, 940, 657, 544, 658, 533, 409, 335, 404, 334, 653, 88, 639, 97, 358, -83, 339, -107, 579, -300, 570, -241, 58)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Tests" type="Node2D"]
 
