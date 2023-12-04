@@ -207,7 +207,7 @@ states/Run/position = Vector2(559, 172)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cqcss"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_qec17"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_cim04"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_vewo0"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_gtd1k"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_sf6hf"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_cy8iw"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_3xwon"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_7eu7f")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
-collision_mask = 2
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_hos3h")
 navigation_agent = NodePath("NavigationAgent2D")
@@ -226,6 +226,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5toc6")
+}
 tree_root = SubResource("AnimationNodeStateMachine_rhjat")
 anim_player = NodePath("../AnimationPlayer")
 

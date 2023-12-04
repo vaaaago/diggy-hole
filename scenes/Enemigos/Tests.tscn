@@ -1,58 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmkh01vox5ft3"]
+[gd_scene load_steps=7 format=3 uid="uid://dmkh01vox5ft3"]
 
-[ext_resource type="PackedScene" uid="uid://b8l2vu4kw168l" path="res://scenes/Enemigos/Esqueleto.tscn" id="1_urbxu"]
-[ext_resource type="PackedScene" uid="uid://xi8dvu7oj0qk" path="res://scenes/Enemigos/flying_eye.tscn" id="2_5y47i"]
-[ext_resource type="PackedScene" uid="uid://b885540asgccf" path="res://scenes/Enemigos/goblin.tscn" id="3_0cuhl"]
-[ext_resource type="PackedScene" uid="uid://cc0b4k5f6kfjf" path="res://scenes/Enemigos/Mushroom.tscn" id="4_lhqbp"]
-[ext_resource type="PackedScene" uid="uid://dfjhlgelrdbwg" path="res://scenes/Enemigos/Muñeco.tscn" id="5_7qhb1"]
 [ext_resource type="PackedScene" uid="uid://d03ns2qlv6mvb" path="res://scenes/Enemigos/Spawner0.tscn" id="6_kgmon"]
+[ext_resource type="PackedScene" uid="uid://cp86i1886exfh" path="res://tile_map.tscn" id="6_p25kq"]
 [ext_resource type="PackedScene" uid="uid://by3e6xwqspjt3" path="res://scenes/Enemigos/Spawner1.tscn" id="7_h8dlp"]
+[ext_resource type="PackedScene" uid="uid://jl85rkt7u6yw" path="res://scenes/enano.tscn" id="7_onjtm"]
 [ext_resource type="PackedScene" uid="uid://egnl83543kpk" path="res://scenes/Enemigos/Spawner2.tscn" id="8_oy3fs"]
 [ext_resource type="PackedScene" uid="uid://237t4qpk2p8t" path="res://scenes/Enemigos/Spawner3.tscn" id="9_rrj5o"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_n3l33"]
-vertices = PackedVector2Array(-107, 579, -300, 570, -241, 58, -83, 339, 201, 96, 97, 358, 335, 404, 334, 653, 88, 639, 533, 409, 466, 93, 913, 103, 940, 657, 544, 658)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 5, 4), PackedInt32Array(9, 6, 4, 10, 11), PackedInt32Array(9, 11, 12, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(201, 96, 466, 93, 913, 103, 940, 657, 544, 658, 533, 409, 335, 404, 334, 653, 88, 639, 97, 358, -83, 339, -107, 579, -300, 570, -241, 58)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
 [node name="Tests" type="Node2D"]
 
-[node name="Skeleton" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("1_urbxu")]
-position = Vector2(-5, 205)
-movement_target = NodePath("../CharacterBody2D")
+[node name="Tiles" parent="." instance=ExtResource("6_p25kq")]
+position = Vector2(673, -103)
 
-[node name="Flying Eye" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("2_5y47i")]
-position = Vector2(823, 189)
-movement_target = NodePath("../CharacterBody2D")
+[node name="Spawner0" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("6_kgmon")]
+position = Vector2(1093, 210)
+movement_target = NodePath("../enano")
+tilemap = NodePath("../Tiles")
 
-[node name="Goblin" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("3_0cuhl")]
-position = Vector2(175, 557)
-movement_target = NodePath("../CharacterBody2D")
+[node name="Spawner1" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("7_h8dlp")]
+position = Vector2(1098, 410)
+movement_target = NodePath("../enano")
+tilemap = NodePath("../Tiles")
 
-[node name="Mushroom" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("4_lhqbp")]
-position = Vector2(883, 541)
-movement_target = NodePath("../CharacterBody2D")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_7qhb1")]
-position = Vector2(434, 306)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(50, -32)
-navigation_polygon = SubResource("NavigationPolygon_n3l33")
-
-[node name="Spawner0" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("6_kgmon")]
-position = Vector2(173, 164)
-movement_target = NodePath("../CharacterBody2D")
-
-[node name="Spawner1" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("7_h8dlp")]
-position = Vector2(692, 374)
-movement_target = NodePath("../CharacterBody2D")
-
-[node name="Spawner2" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("8_oy3fs")]
+[node name="Spawner2" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("8_oy3fs")]
 position = Vector2(301, 418)
-movement_target = NodePath("../CharacterBody2D")
+movement_target = NodePath("../enano")
+tilemap = NodePath("../Tiles")
 
-[node name="Spawner3" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("9_rrj5o")]
-position = Vector2(682, 204)
-movement_target = NodePath("../CharacterBody2D")
+[node name="Spawner3" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("9_rrj5o")]
+position = Vector2(71, 242)
+movement_target = NodePath("../enano")
+tilemap = NodePath("../Tiles")
+
+[node name="enano" parent="." instance=ExtResource("7_onjtm")]
+position = Vector2(1104, 582)

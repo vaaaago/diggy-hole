@@ -164,7 +164,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-6, 55)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
-collision_mask = 2
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_52l5m")
 navigation_agent = NodePath("NavigationAgent2D")
@@ -183,6 +183,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p456d")
+}
 tree_root = SubResource("AnimationNodeStateMachine_yrc5h")
 anim_player = NodePath("../AnimationPlayer")
 

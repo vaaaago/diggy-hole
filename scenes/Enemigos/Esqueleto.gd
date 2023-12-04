@@ -58,7 +58,7 @@ func _physics_process(delta):
 		queue_free()
 		if attacking:
 			movement_target.hp -= damage
-	print(playback.get_current_node())
+
 		
 	
 	
