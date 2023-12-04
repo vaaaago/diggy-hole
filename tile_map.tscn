@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp86i1886exfh"]
+[gd_scene load_steps=9 format=3 uid="uid://cp86i1886exfh"]
 
 [ext_resource type="Texture2D" uid="uid://bllupor0yeyd7" path="res://texturas/Textures-16.png" id="1_cud2k"]
 [ext_resource type="Texture2D" uid="uid://cxjijvm4mnujx" path="res://texturas/rock tile (1).png" id="2_jn8r1"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="3_irkw2"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_5qbky"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ccexs"]
+vertices = PackedVector2Array(2, 2, -2, 2, -2, -2, 2, -2)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -2, -2, -2, -2, 2, 2, 2)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y0gir"]
+vertices = PackedVector2Array(2, 2, -2, 2, -2, -2, 2, -2)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -2, 2, 2, -2, 2, -2, -2)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -23,6 +30,7 @@ texture = ExtResource("1_cud2k")
 5:29/0 = 0
 5:29/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:29/0/physics_layer_0/angular_velocity = 0.0
+5:29/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ccexs")
 0:29/0 = 0
 0:29/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:29/0/physics_layer_0/angular_velocity = 0.0
@@ -54,7 +62,7 @@ texture = ExtResource("1_cud2k")
 5:30/0 = 0
 5:30/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:30/0/physics_layer_0/angular_velocity = 0.0
-5:30/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5qbky")
+5:30/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_y0gir")
 5:31/0 = 0
 5:31/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:31/0/physics_layer_0/angular_velocity = 0.0

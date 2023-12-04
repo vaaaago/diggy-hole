@@ -23,7 +23,7 @@ var damage = 3
 
 func _ready():
 	animation_tree.active = true
-	navigation_agent.path_desired_distance = 5
+	navigation_agent.path_desired_distance = 16
 	navigation_agent.target_desired_distance = 30.0
 	
 	call_deferred("actor_setup")

@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dsb0stxhehjiy" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Skeleton/Death.png" id="5_y2a8a"]
 [ext_resource type="AudioStream" uid="uid://cutcq1hsmuspg" path="res://assets/Sonidos/SFX/17_orc_atk_sword_2.wav" id="6_2yois"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nd73j"]
-size = Vector2(50, 57)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6chc"]
+radius = 9.0
+height = 60.0
 
 [sub_resource type="Animation" id="Animation_6318w"]
 resource_name = "Attack"
@@ -215,8 +216,7 @@ script = ExtResource("1_1syms")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 0)
-shape = SubResource("RectangleShape2D_nd73j")
+shape = SubResource("CapsuleShape2D_n6chc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_b7jhw")

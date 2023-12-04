@@ -1,4 +1,4 @@
-#class_name TileCraft
+class_name TileCraft
 extends TileMap
 
 

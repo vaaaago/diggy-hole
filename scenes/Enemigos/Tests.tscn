@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmkh01vox5ft3"]
 
 [ext_resource type="PackedScene" uid="uid://d03ns2qlv6mvb" path="res://scenes/Enemigos/Spawner0.tscn" id="6_kgmon"]
-[ext_resource type="PackedScene" uid="uid://cp86i1886exfh" path="res://tile_map.tscn" id="6_p25kq"]
+[ext_resource type="PackedScene" uid="uid://b2m6q38otivar" path="res://scenes/Enemigos/tile_map_prueba.tscn" id="6_qe2mp"]
 [ext_resource type="PackedScene" uid="uid://by3e6xwqspjt3" path="res://scenes/Enemigos/Spawner1.tscn" id="7_h8dlp"]
 [ext_resource type="PackedScene" uid="uid://jl85rkt7u6yw" path="res://scenes/enano.tscn" id="7_onjtm"]
 [ext_resource type="PackedScene" uid="uid://egnl83543kpk" path="res://scenes/Enemigos/Spawner2.tscn" id="8_oy3fs"]
@@ -9,28 +9,28 @@
 
 [node name="Tests" type="Node2D"]
 
-[node name="Tiles" parent="." instance=ExtResource("6_p25kq")]
-position = Vector2(673, -103)
+[node name="TileMap" parent="." instance=ExtResource("6_qe2mp")]
+position = Vector2(672, 38)
 
 [node name="Spawner0" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("6_kgmon")]
 position = Vector2(1093, 210)
 movement_target = NodePath("../enano")
-tilemap = NodePath("../Tiles")
+tilemap = NodePath("../TileMap")
 
 [node name="Spawner1" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("7_h8dlp")]
 position = Vector2(1098, 410)
 movement_target = NodePath("../enano")
-tilemap = NodePath("../Tiles")
+tilemap = NodePath("../TileMap")
 
 [node name="Spawner2" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("8_oy3fs")]
 position = Vector2(301, 418)
 movement_target = NodePath("../enano")
-tilemap = NodePath("../Tiles")
+tilemap = NodePath("../TileMap")
 
 [node name="Spawner3" parent="." node_paths=PackedStringArray("movement_target", "tilemap") instance=ExtResource("9_rrj5o")]
 position = Vector2(71, 242)
 movement_target = NodePath("../enano")
-tilemap = NodePath("../Tiles")
+tilemap = NodePath("../TileMap")
 
 [node name="enano" parent="." instance=ExtResource("7_onjtm")]
 position = Vector2(1104, 582)
