@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://65wmt60howvi" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Mushroom/Death.png" id="4_3bm3i"]
 [ext_resource type="AudioStream" uid="uid://gtktblmaj0hx" path="res://assets/Sonidos/SFX/21_orc_damage_2.wav" id="6_bfu7i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit7x"]
-size = Vector2(26, 39)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhf0d"]
+radius = 9.0
+height = 37.0
 
 [sub_resource type="Animation" id="Animation_puhtn"]
 resource_name = "Attack"
@@ -207,14 +208,14 @@ states/Run/position = Vector2(559, 172)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cqcss"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_qec17"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_cim04"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_vewo0"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_gtd1k"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_sf6hf"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_cy8iw"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_3xwon"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_7eu7f")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
-collision_mask = 2
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_hos3h")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_hit7x")
+shape = SubResource("CapsuleShape2D_uhf0d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ftxaw")
@@ -226,6 +227,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5toc6")
+}
 tree_root = SubResource("AnimationNodeStateMachine_rhjat")
 anim_player = NodePath("../AnimationPlayer")
 
