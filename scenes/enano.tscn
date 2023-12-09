@@ -122,7 +122,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_eljh1")
 hframes = 8
 vframes = 6
-frame = 6
+
+frame = 0
+
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
