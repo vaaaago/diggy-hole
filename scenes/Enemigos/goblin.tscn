@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bymssk34bevfo" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Goblin/Death.png" id="4_sg4y1"]
 [ext_resource type="AudioStream" uid="uid://cb154mrcgtxkm" path="res://assets/Sonidos/SFX/11_human_damage_3.wav" id="6_ljnfn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b108x"]
-size = Vector2(42, 43)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcbuf"]
+radius = 13.0
+height = 45.0
 
 [sub_resource type="Animation" id="Animation_sg7m6"]
 resource_name = "Attack"
@@ -205,14 +206,14 @@ states/Run/position = Vector2(521, 160)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qninh"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_px18n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_qucan"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_oq0j4"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_rrim7"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_epjxs"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_rf04y"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_gq6qw")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
-collision_mask = 2
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_eox2n")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 6.5)
-shape = SubResource("RectangleShape2D_b108x")
+shape = SubResource("CapsuleShape2D_fcbuf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1kij4")
@@ -224,6 +225,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rcqex")
+}
 tree_root = SubResource("AnimationNodeStateMachine_8mg4w")
 anim_player = NodePath("../AnimationPlayer")
 
