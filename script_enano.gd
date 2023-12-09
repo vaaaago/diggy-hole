@@ -3,7 +3,8 @@ extends CharacterBody2D
 var rapidez = 400
 var aceleracion = 1000
 var gravity = 0
-var hp = int(3) #vida del enano
+var hp :int = 6 #vida del enano
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -68,6 +69,11 @@ func _physics_process(delta: float) -> void:
 			print("fuera de rango")
 			print(distance)
 			
-			
+func recibir_daño(daño:int): 
+	hp -= daño 
+	if hp <= 0: #el enano muere
+		pass
+	
+
 			
 
