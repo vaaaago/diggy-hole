@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var acceleration = 200
-var hp = 2
+var hp = 4
 var attacking = false
 var damage = 2
 
@@ -83,6 +83,9 @@ func attack():
 	attack_sound.play()
 	hp = 0
 	attacking = true
+	
+func take_damage(daño: int):
+	hp -= daño
 	
 	
 

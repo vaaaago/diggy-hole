@@ -205,7 +205,7 @@ states/Run/node = SubResource("AnimationNodeAnimation_t4lex")
 states/Run/position = Vector2(521, 160)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qninh"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_px18n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_qucan"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_oq0j4"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_rrim7"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_epjxs"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_rf04y"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_gq6qw")]
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent") groups=["enemy"]]
 collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_eox2n")
