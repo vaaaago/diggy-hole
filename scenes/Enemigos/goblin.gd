@@ -74,3 +74,7 @@ func attack():
 	playback.travel("Attack")
 	hp = 0
 	attacking = true
+
+
+func take_damage(daño: int):
+	hp -= daño

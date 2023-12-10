@@ -162,7 +162,7 @@ states/Idle/position = Vector2(349, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8buk0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_divxy"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_03u8x"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_ljnj0"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_sqpd4")]
 graph_offset = Vector2(-6, 55)
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent") groups=["enemy"]]
 collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_52l5m")

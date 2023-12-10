@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var acceleration = 200
-var hp = 1
+var hp = 2
 var attacking = false
 var damage = 1
 
@@ -73,3 +73,6 @@ func attack():
 	playback.travel("Attack")
 	hp = 0
 	attacking = true
+	
+func take_damage(daño: int):
+	hp -= daño
