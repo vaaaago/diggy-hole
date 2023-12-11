@@ -9,10 +9,10 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	button_resume.pressed.connect(_on_resume_pressed)
-	button_retry.pressed.connect(_on_retry_pressed)
-	button_menu.pressed.connect(_on_menu_pressed)
-	button_exit.pressed.connect(_on_exit_pressed)
+	resume.pressed.connect(_on_resume_pressed)
+	retry.pressed.connect(_on_retry_pressed)
+	menu.pressed.connect(_on_menu_pressed)
+	exit.pressed.connect(_on_exit_pressed)
 	
 	hide()
 
