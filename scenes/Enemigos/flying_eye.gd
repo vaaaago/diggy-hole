@@ -23,7 +23,7 @@ var damage = 1
 
 func _ready():
 	animation_tree.active = true
-	navigation_agent.path_desired_distance = 5
+	navigation_agent.path_desired_distance = 14
 	navigation_agent.target_desired_distance = 30
 	
 	call_deferred("actor_setup")
@@ -54,7 +54,7 @@ func _physics_process(delta):
 	if (playback.get_current_node() == "End"):
 		queue_free()
 		if attacking:
-			movement_target.hp -= damage
+			movement_target.recibir_daño(damage)
 	
 
 	move_and_slide()
@@ -73,3 +73,6 @@ func attack():
 	playback.travel("Attack")
 	hp = 0
 	attacking = true
+	
+func take_damage(daño: int):
+	hp -= daño

@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4a0y7jhc5rpd" path="res://assets/Sprites enemigos/Monsters_Creatures_Fantasy/Flying eye/Death.png" id="4_6gj8q"]
 [ext_resource type="AudioStream" uid="uid://34tkepj1x4v1" path="res://assets/Sonidos/SFX/21_orc_damage_1.wav" id="5_8437e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4af7"]
-size = Vector2(24, 23)
+[sub_resource type="CircleShape2D" id="CircleShape2D_yinrx"]
 
 [sub_resource type="Animation" id="Animation_4u7cm"]
 resource_name = "Attack"
@@ -163,15 +162,15 @@ states/Idle/position = Vector2(349, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8buk0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_divxy"), "Attack", "Death", SubResource("AnimationNodeStateMachineTransition_03u8x"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_ljnj0"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_sqpd4")]
 graph_offset = Vector2(-6, 55)
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
-collision_mask = 2
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent") groups=["enemy"]]
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_52l5m")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 3.5)
-shape = SubResource("RectangleShape2D_t4af7")
+shape = SubResource("CircleShape2D_yinrx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_aal2w")
@@ -183,11 +182,13 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p456d")
+}
 tree_root = SubResource("AnimationNodeStateMachine_yrc5h")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Ataque" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8437e")

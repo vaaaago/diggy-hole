@@ -1,9 +1,10 @@
-extends MarginContainer
+extends CanvasLayer
 
-@onready var button_resume = %Button_resume
-@onready var button_retry = %Button_retry
-@onready var button_menu = %Button_menu
-@onready var button_exit = %Button_exit
+
+@onready var resume = %Button_resume
+@onready var retry = %Button_retry
+@onready var menu = %Button_menu
+@onready var exit = %Button_exit
 
 
 
@@ -28,8 +29,8 @@ func _on_resume_pressed():
 
 
 func _on_retry_pressed():
-	get_tree().reload_current_scene()
 	get_tree().paused = false
+	LevelManager.reload_level()
 
 func _on_menu_pressed():
 

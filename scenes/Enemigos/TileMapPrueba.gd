@@ -1,4 +1,4 @@
-#class_name TileCraft
+class_name TileCraft
 extends TileMap
 
 
@@ -9,6 +9,7 @@ var current_time = 0
 var current_block 
 var rango_cavar = 70
 @onready var enano: CharacterBody2D = $"../enano"
+
 
 func _process(delta):
 	var posicion_enano = enano.global_position

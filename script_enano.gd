@@ -3,14 +3,16 @@ extends CharacterBody2D
 var rapidez = 400
 var aceleracion = 1000
 var gravity = 0
-var hp = int(3) #vida del enano
+var hp :int = 6 #vida del enano
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivote: Node2D = $pivote
 @onready var character_body_2d: CharacterBody2D = $"."
-
+@export var turret1_scene : PackedScene
+@export var spike_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,14 +62,35 @@ func _physics_process(delta: float) -> void:
 				pivote.scale.x = -1
 			elif pivote.scale.x == -1 and target_position.x - posicion_enano.x > 0 :
 				pivote.scale.x = 1
-			print("cavar")
-			print(distance)
+			
 			playback.travel("cavar")
 			
-		else:
-			print("fuera de rango")
-			print(distance)
 			
-			
-			
+	if Input.is_action_just_pressed("turret1"): #el input es la tecla 1
+		var mouse_posi= get_global_mouse_position()
+		construir(mouse_posi,"torreta1")
+	
+	if Input.is_action_just_pressed("turret2"): #el input es la tecla 2
+		var mouse_posi= get_global_mouse_position()
+		construir(mouse_posi,"spike")
+		
+	
+		
 
+func recibir_daño(daño:int):
+	hp -= daño 
+	if hp <= 0: #el enano muere
+		LevelManager.game_over()
+	
+
+func construir(posicion,tipo):
+	if tipo == "torreta1":
+		var torreta = turret1_scene.instantiate()
+		get_parent().add_child(torreta)
+		torreta.global_position = posicion
+		pass
+	if tipo == "spike":
+		var pinchos = spike_scene.instantiate()
+		get_parent().add_child(pinchos)
+		pinchos.global_position =  posicion
+		pass
