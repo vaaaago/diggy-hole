@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://jl85rkt7u6yw"]
+[gd_scene load_steps=19 format=3 uid="uid://jl85rkt7u6yw"]
 
 [ext_resource type="Script" path="res://script_enano.gd" id="1_2lpd2"]
 [ext_resource type="Texture2D" uid="uid://dupqbku5s1jfk" path="res://assets/Dwarf Miner Sprite Sheet.png" id="2_eljh1"]
+[ext_resource type="PackedScene" uid="uid://dixpb2jqldfox" path="res://scenes/pause_menu.tscn" id="3_jyuvw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x53p2"]
 radius = 14.0
@@ -134,6 +135,10 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gnyql")
+}
 tree_root = SubResource("AnimationNodeStateMachine_11obg")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -143,3 +148,8 @@ limit_top = 1
 limit_right = 1295
 limit_bottom = 1700
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause_menu" parent="CanvasLayer" instance=ExtResource("3_jyuvw")]
+size_flags_horizontal = 4

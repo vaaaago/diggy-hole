@@ -1,17 +1,17 @@
 extends MarginContainer
 
-@onready var resume: Button = %Resume
-@onready var retry: Button = %Retry
-@onready var menu: Button = %Menu
-@onready var exit: Button = %Exit
+@onready var button_resume = %Button_resume
+@onready var button_retry = %Button_retry
+@onready var button_menu = %Button_menu
+@onready var button_exit = %Button_exit
+
 
 
 func _ready() -> void:
-	resume.pressed.connect(_on_resume_pressed)
-	retry.pressed.connect(_on_retry_pressed)
-	menu.pressed.connect(_on_menu_pressed)
-	exit.pressed.connect(_on_exit_pressed)
-	
+	button_resume.pressed.connect(_on_resume_pressed)
+	button_retry.pressed.connect(_on_retry_pressed)
+	button_menu.pressed.connect(_on_menu_pressed)
+	button_exit.pressed.connect(_on_exit_pressed)
 	
 	hide()
 
