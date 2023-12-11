@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsvy6d7j4dub8"]
+[gd_scene load_steps=18 format=3 uid="uid://bsvy6d7j4dub8"]
 
 [ext_resource type="Script" path="res://scenes/StaticBody2D.gd" id="1_3tuh0"]
 [ext_resource type="PackedScene" uid="uid://cp86i1886exfh" path="res://tile_map.tscn" id="1_wb8qf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://by3e6xwqspjt3" path="res://scenes/Enemigos/Spawner1.tscn" id="8_4a3vh"]
 [ext_resource type="PackedScene" uid="uid://egnl83543kpk" path="res://scenes/Enemigos/Spawner2.tscn" id="9_7au3j"]
 [ext_resource type="PackedScene" uid="uid://237t4qpk2p8t" path="res://scenes/Enemigos/Spawner3.tscn" id="10_atmmh"]
+[ext_resource type="PackedScene" uid="uid://dixpb2jqldfox" path="res://scenes/pause_menu.tscn" id="11_mkquy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eogsc"]
 
@@ -245,7 +246,7 @@ texture = ExtResource("6_4fxjq")
 [node name="margenes" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="margenes"]
-position = Vector2(647, 298)
+position = Vector2(643, 251)
 shape = SubResource("RectangleShape2D_xf4lx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="margenes"]
@@ -285,6 +286,8 @@ tilemap = NodePath("../TileMap")
 position = Vector2(439, 545)
 movement_target = NodePath("../enano")
 tilemap = NodePath("../TileMap")
+
+[node name="Pause_menu" parent="." instance=ExtResource("11_mkquy")]
 
 [connection signal="mouse_entered" from="gemas/StaticBody2D/Area2D" to="gemas/StaticBody2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="gemas/StaticBody2D/Area2D" to="gemas/StaticBody2D" method="_on_area_2d_mouse_exited"]

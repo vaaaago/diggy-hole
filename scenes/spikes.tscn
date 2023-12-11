@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhx3mmgf5d0i"]
+[gd_scene load_steps=14 format=3 uid="uid://bhx3mmgf5d0i"]
 
 [ext_resource type="Script" path="res://scenes/spike.gd" id="1_dc4h2"]
 [ext_resource type="Texture2D" uid="uid://bte72b4gp2ucj" path="res://assets/Spike Trap.png" id="3_v6w4u"]
@@ -21,6 +21,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_5vfin"]
 resource_name = "trigger"
 length = 0.87
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -41,24 +42,36 @@ _data = {
 "trigger": SubResource("Animation_5vfin")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tf5p6"]
+animation = &"RESET"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xtcc7"]
 animation = &"trigger"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egv6d"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_58n1d"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ac6ul"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbe0c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_trsy1"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7g8eg"]
+states/RESET/node = SubResource("AnimationNodeAnimation_tf5p6")
+states/RESET/position = Vector2(673, 43)
 states/trigger/node = SubResource("AnimationNodeAnimation_xtcc7")
 states/trigger/position = Vector2(519, 100)
-transitions = ["Start", "trigger", SubResource("AnimationNodeStateMachineTransition_egv6d"), "trigger", "End", SubResource("AnimationNodeStateMachineTransition_58n1d")]
+transitions = ["trigger", "End", SubResource("AnimationNodeStateMachineTransition_58n1d"), "Start", "trigger", SubResource("AnimationNodeStateMachineTransition_ac6ul"), "RESET", "trigger", SubResource("AnimationNodeStateMachineTransition_jbe0c"), "trigger", "RESET", SubResource("AnimationNodeStateMachineTransition_trsy1")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8qp6"]
 size = Vector2(32, 31)
 
 [node name="Spikes" type="Area2D"]
 collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_dc4h2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
