@@ -1,9 +1,11 @@
+
 [gd_scene load_steps=20 format=3 uid="uid://jl85rkt7u6yw"]
 
 [ext_resource type="Script" path="res://script_enano.gd" id="1_2lpd2"]
 [ext_resource type="Texture2D" uid="uid://dupqbku5s1jfk" path="res://assets/Dwarf Miner Sprite Sheet.png" id="2_eljh1"]
 [ext_resource type="PackedScene" uid="uid://db55mjxs2dn2j" path="res://scenes/torreta_1.tscn" id="2_scqls"]
 [ext_resource type="PackedScene" uid="uid://bhx3mmgf5d0i" path="res://scenes/spikes.tscn" id="3_bika4"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x53p2"]
 radius = 14.0
@@ -152,3 +154,8 @@ limit_top = 1
 limit_right = 1295
 limit_bottom = 1700
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause_menu" parent="CanvasLayer" instance=ExtResource("3_jyuvw")]
+size_flags_horizontal = 4

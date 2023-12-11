@@ -10,7 +10,6 @@ var current_block
 var rango_cavar = 70
 @onready var enano: CharacterBody2D = $"../enano"
 
-
 func _process(delta):
 	var posicion_enano = enano.global_position
 	var posicion_mouse = get_global_mouse_position()
