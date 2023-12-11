@@ -38,7 +38,8 @@ func _process(delta):
 
 
 func _on_SpawnTimer_timeout():
-	if (timeCicles*time < 30):
+	if (timeCicles*time < 30): 
+	#if (timeCicles*time < 1):
 		timeCicles += 1
 	else:
 		var enemy_spawn = randi_range(0, rango-1)

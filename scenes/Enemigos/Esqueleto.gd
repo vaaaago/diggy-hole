@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var acceleration = 200
-var hp = 4
+var hp = 3
 var attacking = false
 var damage = 2
 
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	if (playback.get_current_node() == "End"):
 		queue_free()
 		if attacking:
-			movement_target.hp -= damage
+			movement_target.recibir_daño(damage)
 
 		
 	
@@ -82,6 +82,7 @@ func attack():
 	playback.travel("Attack")
 	attack_sound.play()
 	hp = 0
+	
 	attacking = true
 	
 func take_damage(daño: int):

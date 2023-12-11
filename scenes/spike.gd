@@ -10,13 +10,13 @@ var daño = 1
 func _ready():
 	body_entered.connect(checkear_enemigo)
 	body_exited.connect(sacar_enemigo)
-	
+	animation_tree.active = true
 	
 
 func _physics_process(delta):
 	if lista_enemigos and not disparando:
 		var posicion_enemigo= Vector2( lista_enemigos[0].global_position)
-		print(posicion_enemigo)
+		
 		disparar(lista_enemigos[0])
 		disparando= true
 	elif not lista_enemigos:
@@ -25,6 +25,7 @@ func _physics_process(delta):
 	
 	
 func disparar(body):
+	
 	playback.travel("trigger")
 	if body.has_method("take_damage"): #añadir func take_damage en enemigos
 		body.take_damage(daño)
@@ -35,13 +36,13 @@ func checkear_enemigo(body):
 	if body.is_in_group("enemy"):
 			# Enemigo detectado
 			lista_enemigos.append(body) 
-			print("detectado")
+			
 
 func sacar_enemigo(body):
 	if body.is_in_group("enemy"):
 			# Enemigo detectado
 			lista_enemigos.erase(body) 
-			print("enemigo salio del radio")
+			
 			
 			
 	

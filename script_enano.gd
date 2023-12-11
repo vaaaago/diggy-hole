@@ -62,13 +62,9 @@ func _physics_process(delta: float) -> void:
 				pivote.scale.x = -1
 			elif pivote.scale.x == -1 and target_position.x - posicion_enano.x > 0 :
 				pivote.scale.x = 1
-			print("cavar")
-			print(distance)
+			
 			playback.travel("cavar")
 			
-		else:
-			print("fuera de rango")
-			print(distance)
 			
 	if Input.is_action_just_pressed("turret1"): #el input es la tecla 1
 		var mouse_posi= get_global_mouse_position()
@@ -78,11 +74,13 @@ func _physics_process(delta: float) -> void:
 		var mouse_posi= get_global_mouse_position()
 		construir(mouse_posi,"spike")
 		
+	
+		
 
 func recibir_daño(daño:int):
 	hp -= daño 
 	if hp <= 0: #el enano muere
-		pass
+		LevelManager.game_over()
 	
 
 func construir(posicion,tipo):
