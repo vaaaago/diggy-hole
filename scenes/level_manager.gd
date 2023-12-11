@@ -30,6 +30,7 @@ func go_to_main_menu():
 
 func go_to_credits():
 	if credits:
+		print("AAAAAAAAAAA")
 		get_tree().change_scene_to_packed(credits)
 		current_level = 0
 
