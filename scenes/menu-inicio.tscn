@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dna41i1qep74b"]
+[gd_scene load_steps=3 format=3 uid="uid://dna41i1qep74b"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_cxfuq"]
+[ext_resource type="Texture2D" uid="uid://citxn5amebn5q" path="res://texturas/menu de inicio.jpeg" id="2_575gj"]
 
 [node name="menu-inicio" type="Control"]
 layout_mode = 3
@@ -10,11 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(635, 362)
+scale = Vector2(1.75476, 1.99932)
+texture = ExtResource("2_575gj")
+
 [node name="main_menu" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00635)

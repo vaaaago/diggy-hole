@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br6l655eym78f" path="res://scenes/levels/fondo_lvl_2.tscn" id="3_6ty6c"]
 [ext_resource type="PackedScene" uid="uid://0x5p1jwhyu8e" path="res://scenes/Credits/GodotCredits.tscn" id="3_84004"]
 [ext_resource type="PackedScene" uid="uid://swt4c8wrxl3h" path="res://scenes/derrota.tscn" id="3_ig4cv"]
+[ext_resource type="PackedScene" uid="uid://b1cn0mpg2f1wq" path="res://scenes/tutorial.tscn" id="4_30dja"]
 [ext_resource type="PackedScene" uid="uid://lhfxtv6pu0ex" path="res://scenes/levels/fondo_lvl_3.tscn" id="5_4vb7s"]
 
 [node name="LevelManager" type="Node2D"]
@@ -13,4 +14,4 @@ script = ExtResource("1_pfmgm")
 main_menu = ExtResource("2_bli61")
 credits = ExtResource("3_84004")
 gameover = ExtResource("3_ig4cv")
-levels = Array[PackedScene]([ExtResource("2_2ftlx"), ExtResource("3_6ty6c"), ExtResource("5_4vb7s")])
+levels = Array[PackedScene]([ExtResource("4_30dja"), ExtResource("2_2ftlx"), ExtResource("3_6ty6c"), ExtResource("5_4vb7s")])

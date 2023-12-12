@@ -4,6 +4,7 @@ var rapidez = 400
 var aceleracion = 1000
 var gravity = 0
 var hp :int = 6 #vida del enano
+var gemas = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -22,6 +23,7 @@ func _ready() -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	print(gemas)
 	#movimiento
 	if Input.is_action_pressed("move_left"):
 		velocity.x = move_toward(velocity.x,-rapidez,aceleracion * delta )
@@ -84,13 +86,17 @@ func recibir_daño(daño:int):
 	
 
 func construir(posicion,tipo):
-	if tipo == "torreta1":
+	if tipo == "torreta1" and gemas > 0:
 		var torreta = turret1_scene.instantiate()
 		get_parent().add_child(torreta)
 		torreta.global_position = posicion
-		pass
-	if tipo == "spike":
+		gemas -=1
+	if tipo == "spike" and gemas > 0:
 		var pinchos = spike_scene.instantiate()
 		get_parent().add_child(pinchos)
 		pinchos.global_position =  posicion
-		pass
+		gemas -=1
+		
+		
+func añadir_gema():
+	gemas += 1

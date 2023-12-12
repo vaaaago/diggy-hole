@@ -1408,7 +1408,7 @@ shape = SubResource("CircleShape2D_o1mxk")
 [node name="StaticBody2D7" type="StaticBody2D" parent="gemas"]
 visible = false
 visibility_layer = 2
-position = Vector2(1043, 204)
+position = Vector2(1859, 219)
 collision_layer = 2
 script = ExtResource("4_raa83")
 metadata/_edit_group_ = true
@@ -1535,7 +1535,7 @@ layer = -1
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(654, 367)
+position = Vector2(630, 363)
 scale = Vector2(1.92, 1.5051)
 texture = ExtResource("5_bbbf6")
 
@@ -1544,7 +1544,7 @@ texture = ExtResource("5_bbbf6")
 [node name="margenes" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="margenes"]
-position = Vector2(652, 226.875)
+position = Vector2(642, 63)
 shape = SubResource("RectangleShape2D_o5p61")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="margenes"]

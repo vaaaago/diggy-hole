@@ -26,6 +26,7 @@ func _input(event):
 	
 
 func _on_timer_timeout():
+	enano.añadir_gema()
 	self.queue_free()
 
 
