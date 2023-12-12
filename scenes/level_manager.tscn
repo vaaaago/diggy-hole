@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://d16cdvxyhn6pr"]
+[gd_scene load_steps=8 format=3 uid="uid://d16cdvxyhn6pr"]
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_pfmgm"]
 [ext_resource type="PackedScene" uid="uid://bsvy6d7j4dub8" path="res://scenes/levels/fondo-lvl-1.tscn" id="2_2ftlx"]
 [ext_resource type="PackedScene" uid="uid://dna41i1qep74b" path="res://scenes/menu_demo.tscn" id="2_bli61"]
 [ext_resource type="PackedScene" uid="uid://br6l655eym78f" path="res://scenes/levels/fondo_lvl_2.tscn" id="3_6ty6c"]
 [ext_resource type="PackedScene" uid="uid://swt4c8wrxl3h" path="res://scenes/derrota.tscn" id="3_ig4cv"]
+[ext_resource type="PackedScene" uid="uid://b1cn0mpg2f1wq" path="res://scenes/tutorial.tscn" id="4_30dja"]
 [ext_resource type="PackedScene" uid="uid://lhfxtv6pu0ex" path="res://scenes/levels/fondo_lvl_3.tscn" id="5_4vb7s"]
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_pfmgm")
 main_menu = ExtResource("2_bli61")
 gameover = ExtResource("3_ig4cv")
-levels = Array[PackedScene]([ExtResource("2_2ftlx"), ExtResource("3_6ty6c"), ExtResource("5_4vb7s")])
+levels = Array[PackedScene]([ExtResource("4_30dja"), ExtResource("2_2ftlx"), ExtResource("3_6ty6c"), ExtResource("5_4vb7s")])
